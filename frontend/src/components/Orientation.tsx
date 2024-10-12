@@ -1,45 +1,46 @@
-'use client'
+'use client';
 
-import { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { BookOpen, User } from 'lucide-react'
-import { Raleway } from 'next/font/google'
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { BookOpen, User } from 'lucide-react';
 
-const raleway = Raleway({ subsets: ['latin'] })
+// Importing Google Fonts via a CSS link in the index.html or through CSS
+// Ensure the Raleway font is loaded via a link tag in your `index.html` or CSS file.
+// We'll assume it's done globally via the link in `index.html`
 
 const questions = [
   "What's your name?",
   "What's your intended major?",
   "What's your biggest academic achievement?",
   "What's a challenge you've overcome?"
-]
+];
 
 export default function Orientation() {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-  const [answers, setAnswers] = useState<string[]>([])
-  const [inputValue, setInputValue] = useState('')
-  const inputRef = useRef<HTMLTextAreaElement>(null)
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState<string[]>([]);
+  const [inputValue, setInputValue] = useState('');
+  const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (inputRef.current) {
-      inputRef.current.focus()
+      inputRef.current.focus();
     }
-  }, [currentQuestionIndex])
+  }, [currentQuestionIndex]);
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (inputValue.trim() === '') return
+    e.preventDefault();
+    if (inputValue.trim() === '') return;
 
-    setAnswers([...answers, inputValue])
-    setInputValue('')
+    setAnswers([...answers, inputValue]);
+    setInputValue('');
 
     if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1)
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
-  }
+  };
 
   return (
-    <div className={`min-h-screen bg-purple-100 flex flex-col ${raleway.className}`}>
+    <div className="min-h-screen bg-purple-100 flex flex-col font-raleway">
       <nav className="bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
@@ -74,9 +75,9 @@ export default function Orientation() {
         <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg p-8">
           <h2 className="text-3xl font-bold mb-6 text-gray-900">College Essay Writing Orientation</h2>
           <p className="text-gray-600 mb-8">
-            Welcome to our college essay writing orientation! This friendly process will help us understand your unique background and goals,
-            allowing us to provide personalized guidance for your essay writing journey. Let's get started with a few simple questions.
+            Welcome to our college essay writing orientation! This process will help us understand your background and goals.
           </p>
+
           <div className="space-y-6 mb-8">
             <AnimatePresence>
               {answers.map((answer, index) => (
@@ -94,6 +95,7 @@ export default function Orientation() {
               ))}
             </AnimatePresence>
           </div>
+
           {currentQuestionIndex < questions.length && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -118,17 +120,18 @@ export default function Orientation() {
               </form>
             </motion.div>
           )}
+
           {currentQuestionIndex === questions.length && (
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="text-green-600 font-semibold text-lg"
             >
-              Thank you for completing the orientation! We're excited to guide you through your essay writing process.
+              Thank you for completing the orientation!
             </motion.p>
           )}
         </div>
       </div>
     </div>
-  )
+  );
 }
