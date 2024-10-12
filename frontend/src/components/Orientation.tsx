@@ -12,7 +12,8 @@ const questions = [
   "What's your name?",
   "What's your intended major?",
   "What's your biggest academic achievement?",
-  "What's a challenge you've overcome?"
+  "What's a challenge you've overcome?",
+  "Hi!"
 ];
 
 export default function Orientation() {
