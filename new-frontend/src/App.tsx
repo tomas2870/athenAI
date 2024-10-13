@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'; // Import Navbar
 import Onboarding from './components/Onboarding';
 import EssayEditor from './components/ParentEditor';
 import TestEssayEditor from './components/TestEssayEditor';
+import About from './components/About';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Onboarding />} /> {/* Home route for Orientation */}
             <Route path="/essay-editor" element={<EssayEditor />} /> {/* Route for Essay Editor */}
             <Route path="/test-essay-editor" element={<TestEssayEditor />} /> {/* Purely for debugging */}
+            <Route path="/about" element={<About />} /> {/*About page*/}
           </Routes>
         </div>
       </div>

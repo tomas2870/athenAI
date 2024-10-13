@@ -74,8 +74,11 @@ While I have many passions, one thing I ultimately hope to accomplish at BU, whe
 def test_convert_question():
     print(convert_questions_to_preprompt(SAMPLE_QUESTION_DATA))
 
+host = 'https://athena-prep-c5612b45416c.herokuapp.com'
+# host = 'http://127.0.0.1:5000/'
+
 def test_api(path: str, data: dict):
-    response = requests.post('http://127.0.0.1:5000/' + path, json=data, stream=True, timeout=600)
+    response = requests.post(host + path, json=data, stream=True, timeout=600)
 
     if response.status_code == 200:
         print("Streaming response:")

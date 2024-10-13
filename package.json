@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "concurrently": "^9.0.1",
+    "serve": "^14.2.3"
+  },
+  "scripts": {
+    "heroku-postbuild": "cd new-frontend && npm install && npm run build"
+  }
+}

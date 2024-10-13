@@ -1,6 +1,8 @@
 import { User } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
+import owlImage from '../assets/images/owl.png';
+
 interface NavbarProps {
   selected?: string;
 }
@@ -22,7 +24,7 @@ export default function Navbar({ selected }: NavbarProps) {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <img src="../../src/assets/images/owl.png" alt="Custom Icon" className="h-8 w-8" />
+              <img src={owlImage} alt="Athena the Owl" className="h-8 w-8" />
               <span className="ml-2 text-xl font-bold text-purple-600">AthenaPrep</span>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">

@@ -39,7 +39,7 @@ const SelectContent = React.forwardRef<
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        "relative z-50 max-w-[830px] overflow-y-auto overflow-x-hidden rounded-md border bg-white text-gray-900 shadow-md",
+        "relative z-50 w-full overflow-y-auto overflow-x-hidden rounded-md border bg-white text-gray-900 shadow-md",
         className
       )}
       position={position}
@@ -79,7 +79,7 @@ const SelectItem = React.forwardRef<
   >
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
       <SelectPrimitive.ItemIndicator>
-        <Check className="h-4 w-4" />
+        
       </SelectPrimitive.ItemIndicator>
     </span>
 
